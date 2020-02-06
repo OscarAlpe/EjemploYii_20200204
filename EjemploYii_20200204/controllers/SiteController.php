@@ -7,6 +7,8 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use app\models\Alumnos;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller
 {
@@ -59,7 +61,20 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        /**
+         * SELECT * FROM alumnos
+         */
+        $query = Alumnos::find(); // ActiveQuery
+        $dataProvider = new ActiveDataProvider([
+                'query' => $query,
+                'pagination' => [
+                    'pageSize' => 2,
+                ],
+        ]);
+        
+        return $this->render('index',[
+                             'data'=>$dataProvider
+                            ]);
     }
 
 }
