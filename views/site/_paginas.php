@@ -1,5 +1,11 @@
-<div>
-    <h1><?= $model->id ?></h1>
-    <li><?= $model->nombre ?></li>
-    <li><?= $model->apellidos ?></li>
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <img src="<?= Yii::getAlias("@web") ?>/imgs/fort_awesome.jpg" alt="alternativo">
+    <?= yii\helpers\Html::img('@web/imgs/expo-lyft.jpg', ['alt' => 'alternativo']) ?>
+    <div class="caption">
+      <h3><?= $model->id ?></h3>
+      <p><?= $model->nombre ?></p>
+      <p><?= $model->apellidos ?></p>
+    </div>
+  </div>
 </div>
